@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# AI Sprite Studio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The **AI Sprite Studio** is a React-based application that allows users to extract, classify, and preview sprite animations from sprite sheets. The application leverages IndexedDB for storing spritesheets and includes deep integration with **Ollama AI** for automatic animation classification.
+![image](https://github.com/user-attachments/assets/f0a67625-5e65-4940-9ed3-0140d9e22e5d)
 
-## Available Scripts
+## Features
+- **Sprite Sheet Upload**: Upload and store sprite sheets in IndexedDB.
+- **Automatic Background Detection**: Detect and remove background colors.
+- **Sprite Extraction**: Extract individual sprites using different detection methods.
+- **Ollama AI Classification**: Classify animations using advanced AI models.
+- **Grouping**: Group sprites by row, column, or using Ollama classification.
+- **Animation Preview**: Play animations with adjustable frame rates.
+- **Save & Manage Animations**: Store and organize animations in IndexedDB.
 
-In the project directory, you can run:
+## Installation
+### Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- **Ollama AI** running locally on port `11434`. Follow the [official Ollama documentation](https://ollama.ai/) for setup.
 
-### `npm start`
+### Clone the Repository
+```sh
+git clone https://github.com/avnigashi/ai-sprite-studio.git
+cd ai-sprite-studio
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Install Dependencies
+```sh
+npm install
+```
+or
+```sh
+yarn install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Start the Development Server
+```sh
+npm start
+```
+or
+```sh
+yarn start
+```
+The application should now be accessible at `http://localhost:3000/`.
 
-### `npm test`
+## Usage
+### Uploading a Sprite Sheet
+1. Click the **Upload Spritesheet** button.
+2. Select a `.png` or `.jpg` file.
+3. The image will be stored in IndexedDB.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Extracting Sprites
+1. Adjust the extraction settings (tolerance, min width, height, etc.).
+2. Click **Detect Sprites** to extract frames.
 
-### `npm run build`
+### Classifying Animations with Ollama
+1. Ensure Ollama is running on `localhost:11434`.
+2. Select **Grouping Method** -> `Ollama`.
+3. Choose a model (filtered to show `mllama` or `clip` families).
+4. Click **Detect Sprites** to classify animations.
+5. The extracted animations will be tagged with AI-generated labels.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Playing Animations
+1. Select an animation from the detected list.
+2. Click **Play** to preview the animation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Saving Animations
+1. Assign a name to the detected animation sequence.
+2. Click **Save All Animations** to store them.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Configuration
+### Ollama AI Setup
+Ollama AI must be running locally on port `11434`. If needed, install Ollama following the [official documentation](https://ollama.ai/).
 
-### `npm run eject`
+## Project Structure
+```
+📁 ai-sprite-studio/
+├── 📁 src/
+│   ├── 📁 components/
+│   │   ├── ProgressBar.js
+│   │   ├── SpriteAnimationsTab.js
+│   ├── 📁 models/
+│   │   ├── gameModels.js
+│   ├── 📁 db/
+│   │   ├── index.js (IndexedDB setup)
+├── 📄 package.json
+├── 📄 README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Dependencies
+- **React**: UI Framework
+- **Dexie.js**: IndexedDB wrapper
+- **Bootstrap**: UI components
+- **Ollama AI**: Advanced AI model integration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
+1. Fork the repository.
+2. Create a new feature branch.
+3. Commit changes and push to your fork.
+4. Open a Pull Request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contact
+For issues or feature requests, please open an issue on GitHub or contact the maintainer at `your_email@example.com`.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
