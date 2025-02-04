@@ -1,8 +1,8 @@
 # AI Sprite Studio
+![image](https://github.com/user-attachments/assets/f0a67625-5e65-4940-9ed3-0140d9e22e5d)
 
 ## Overview
 The **AI Sprite Studio** is a React-based application that allows users to extract, classify, and preview sprite animations from sprite sheets. The application leverages IndexedDB for storing spritesheets and includes deep integration with **Ollama AI** for automatic animation classification.
-![image](https://github.com/user-attachments/assets/f0a67625-5e65-4940-9ed3-0140d9e22e5d)
 
 ## Features
 - **Sprite Sheet Upload**: Upload and store sprite sheets in IndexedDB.
