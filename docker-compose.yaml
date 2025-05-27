@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # React Application
+  ai-sprite-studio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8097:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_OLLAMA_URL=http://localhost:11434
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules  # Anonymous volume to prevent overwriting node_modules
+    restart: unless-stopped
